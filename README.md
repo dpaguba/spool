@@ -1,5 +1,9 @@
 # Spool
 
+[![Release](https://img.shields.io/github/v/release/dpaguba/spool)](https://github.com/dpaguba/spool/releases/latest)
+[![macOS 26+](https://img.shields.io/badge/macOS-26%2B-black?logo=apple)](#requirements)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Spool is a native macOS menu bar app that shows how much of your Claude subscription budget you have used, and whether the rest will last until the window resets at your current pace.
 
 ![Spool panel](docs/images/panel.png)
@@ -17,11 +21,26 @@ Spool is built for one person's daily use and published as open source. Pull req
 
 ## Requirements
 
-- macOS 26
-- Xcode 27 or a Swift 6 toolchain
-- No Apple Developer account. The build is ad-hoc signed and not notarized.
+- macOS 26 or later, on Apple silicon or Intel
+- Claude Code, signed in with a Claude subscription
 
-## Build and run
+## Install
+
+1. Download the zip from the [latest release](https://github.com/dpaguba/spool/releases/latest) and unzip it.
+2. Move `Spool.app` to `/Applications` before you open it. An app opened straight from Downloads runs from a temporary copy, and Claude Code would remember that copy's helper path.
+3. Open it. Spool is not notarized, so macOS blocks the first launch. Then open System Settings → Privacy & Security, scroll to the message about Spool and click Open Anyway. Or run this once in Terminal instead:
+
+   ```sh
+   xattr -dr com.apple.quarantine /Applications/Spool.app
+   ```
+
+4. Spool has no Dock icon. Click the ring in the menu bar and press Connect Claude Code. Your limits appear after the next Claude Code reply.
+
+To uninstall, press Disconnect in Settings first (see below), then delete the app.
+
+## Build from source
+
+You need Xcode 27 or a Swift 6 toolchain, and no Apple Developer account: the build is ad-hoc signed and not notarized.
 
 ```sh
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer   # if xcode-select points to the Command Line Tools
@@ -29,7 +48,7 @@ scripts/build-app.sh release
 open build/Spool.app
 ```
 
-The script builds the package, generates the app icon, checks that the English and Ukrainian strings have the same keys, assembles `build/Spool.app` and signs it ad hoc. It keeps a `DEVELOPER_DIR` you set; otherwise it uses `/Applications/Xcode.app/Contents/Developer` when that exists, and leaves the toolchain choice to `xcode-select` when it does not. Run `swift test` for the tests.
+The script builds the package, generates the app icon, checks that the English and Ukrainian strings have the same keys, assembles `build/Spool.app` and signs it ad hoc. Release builds are universal (Apple silicon and Intel), debug builds are native. It keeps a `DEVELOPER_DIR` you set; otherwise it uses `/Applications/Xcode.app/Contents/Developer` when that exists, and leaves the toolchain choice to `xcode-select` when it does not. Run `swift test` for the tests.
 
 ## How the Claude Code connection works
 
@@ -37,7 +56,7 @@ Claude Code runs the command set as `statusLine` in `~/.claude/settings.json` af
 
 Spool ships a small helper, `spool-statusline`, inside the app bundle.
 
-- "Connect Claude Code" in Settings backs up `settings.json`, then sets the helper (its path quoted for the shell) as the `statusLine` command. Every other key is preserved.
+- "Connect Claude Code" in the panel, or Connect in Settings, backs up `settings.json`, then sets the helper (its path quoted for the shell) as the `statusLine` command. Every other key is preserved.
 - The helper reads stdin, writes the observed values into Spool's data directory and prints nothing. On any error it exits 0 with no output, so it cannot break Claude Code.
 - If a `statusLine` is already configured, Spool replaces the entry, saves the previous one, and runs it through the helper: the helper runs the previous command with the same input and prints its output (chaining).
 - "Disconnect" restores the previous `statusLine` value, or removes the key if there was none.
@@ -62,7 +81,7 @@ The default statusline route touches no credentials.
 
 ## Codex
 
-If Spool finds Codex credentials, a Codex section appears. It reads `$CODEX_HOME/auth.json` (default `~/.codex/auth.json`), or the Keychain item `Codex Auth` when Codex is set to keyring storage. Read only, never refreshed. It calls `https://chatgpt.com/backend-api/wham/usage`, which is an undocumented endpoint that OpenAI's sign-in docs ask apps not to call, so treat it as a grey area too. This path has not been tested against a live account.
+Turn on OpenAI Codex in Settings (off by default) to see Codex limits next to the Claude ones. Spool then reads `$CODEX_HOME/auth.json` (default `~/.codex/auth.json`), or the Keychain item `Codex Auth` when Codex is set to keyring storage. Read only, never refreshed. It calls `https://chatgpt.com/backend-api/wham/usage`, which is an undocumented endpoint that OpenAI's sign-in docs ask apps not to call, so treat it as a grey area too. This path has not been tested against a live account.
 
 ## Where data lives
 
