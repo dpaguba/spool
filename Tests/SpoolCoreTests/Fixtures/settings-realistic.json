@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Read(~/dummy/**)"
+    ],
+    "deny": []
+  },
+  "model": "dummy-model",
+  "enabledPlugins": {
+    "plugin-a@market": true,
+    "plugin-b@market": false
+  },
+  "extraKnownMarketplaces": {
+    "market": {
+      "source": {
+        "source": "github",
+        "repo": "dummy/market"
+      },
+      "note": "has {braces} and \"quotes\" and \"statusLine\" text } {",
+      "statusLine": { "type": "command", "command": "nested-not-top-level" }
+    }
+  },
+  "modelSettings": {
+    "temperature": 0.5,
+    "list": [1, 2, [3, 4]]
+  },
+  "tui": {
+    "enabled": true
+  },
+  "theme": "dark",
+  "autoMode": null
+}
