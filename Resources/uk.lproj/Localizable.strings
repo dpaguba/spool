@@ -1,0 +1,293 @@
+/* Menu bar text when the forecast says the budget runs out before the reset. %@ is a clock time such as 15:40. */
+"label.until" = "до %@";
+
+/* Marker before the menu bar text when the limit shown is a weekly one. */
+"label.weeklyMarker" = "7д";
+
+/* Accessibility value of the menu bar item before any usage data has arrived. */
+"label.noData" = "Ще немає даних";
+
+/* Accessibility description of the menu bar item. */
+"statusItem.accessibilityDescription" = "Spool, використання ліміту";
+
+/* Connection error: the Claude Code settings file is not valid JSON. */
+"error.malformedJSON" = "Файл налаштувань не є коректним JSON. Spool нічого не змінив.";
+
+/* Connection error: the Claude Code settings file is valid JSON but not an object. */
+"error.notAnObject" = "Файл налаштувань не є JSON-об'єктом. Spool нічого не змінив.";
+
+/* Connection error: a required field is missing. %@ is the field name. */
+"error.missingField" = "Бракує поля: %@";
+
+/* Connection error: reading or writing a file failed. %@ is the system's detail text. */
+"error.io" = "Помилка файлу: %@";
+
+/* Connection error: a top-level key occurs more than once in the Claude Code settings file. %@ is the key, such as statusLine. */
+"error.duplicateKey" = "У файлі налаштувань ключ «%@» трапляється кілька разів, а Claude Code читає лише останній. Spool нічого не змінив.";
+
+/* Connection error: a key occurs more than once inside one entry of the Claude Code settings file. %1$@ is the entry, such as statusLine; %2$@ is the key, such as command. */
+"error.duplicateKeyInEntry" = "У записі %1$@ у файлі налаштувань ключ «%2$@» трапляється кілька разів. Spool нічого не змінив.";
+
+/* Panel: name of the 5-hour limit window. */
+"panel.window.session" = "5-годинне вікно";
+
+/* Panel: name of the weekly limit window. */
+"panel.window.weekly" = "Тиждень";
+
+/* Panel: name of a per-model weekly window. %@ is the model name, such as Fable. */
+"panel.window.weeklyModel" = "Тиждень, %@";
+
+/* Panel: segment title for Claude. */
+"panel.provider.claude" = "Claude";
+
+/* Panel: segment title for OpenAI Codex. */
+"panel.provider.codex" = "OpenAI";
+
+/* Panel: forecast, the budget runs out today. %@ is a clock time such as 15:40. */
+"panel.runsOutAt" = "закінчиться о %@";
+
+/* Panel: forecast, the budget runs out on another day. %@ is a weekday and time such as Thu 15:40. */
+"panel.runsOutOn" = "закінчиться %@";
+
+/* Panel: the limit is used up. */
+"panel.limitReached" = "ліміт вичерпано";
+
+/* Panel: forecast, the budget lasts until the reset. */
+"panel.enough" = "вистачає";
+
+/* Panel: forecast for the main window, the budget lasts until the reset. %ld is the percent expected to be left then. */
+"panel.enoughWithReserve" = "вистачає, запас ~%ld%%";
+
+/* Panel: reset later today. %@ is a clock time such as 16:10. */
+"panel.resetsAt" = "скидання о %@";
+
+/* Panel: reset on another day. %@ is a weekday and time such as Mon 09:00. */
+"panel.resetsOn" = "скидання %@";
+
+/* Panel: line under the reset time with a live countdown. %@ is hours and minutes such as 1:47. */
+"panel.resetsIn %@" = "через %@";
+
+/* Panel chart: axis label at the current time. */
+"panel.chart.now" = "зараз";
+
+/* Panel footer: time of the newest data. %@ is a time such as 14:23, or a weekday and time. */
+"panel.updated" = "Оновлено %@";
+
+/* Panel footer with the plan name from Detailed limits. %1$@ is a time such as 14:23, %2$@ the plan such as Max 5x. */
+"panel.updatedWithPlan" = "Оновлено %1$@ · %2$@";
+
+/* Panel gear menu: opens the settings window. */
+"panel.menu.settings" = "Налаштування…";
+
+/* Panel gear menu: quits the app. */
+"panel.menu.quit" = "Вийти зі Spool";
+
+/* Panel: accessibility label of the gear button. */
+"panel.menu.options" = "Параметри";
+
+/* Panel empty state when Claude Code is not connected: title. */
+"panel.empty.notConnected.title" = "Spool ще не підключено";
+
+/* Panel empty state when Claude Code is not connected: explanation. */
+"panel.empty.notConnected.body" = "Spool бере ліміти з рядка стану Claude Code. Підключення змінює одне налаштування і зберігає резервну копію.";
+
+/* Panel empty state: button that connects the Claude Code status line. */
+"panel.empty.connect" = "Підключити Claude Code";
+
+/* Panel empty state when connected but no data has arrived: title. */
+"panel.empty.waiting.title" = "Чекаю на першу відповідь Claude Code";
+
+/* Panel empty state when connected but no data has arrived: explanation. */
+"panel.empty.waiting.body" = "Ліміти з’являться тут після наступної відповіді в Claude Code.";
+
+/* Panel empty state when the status line points to Spool at an old location: title. */
+"panel.empty.needsRepair.title" = "Spool потребує виправлення";
+
+/* Panel empty state when the status line points to Spool at an old location: explanation. */
+"panel.empty.needsRepair.body" = "Рядок стану Claude Code досі вказує на старе розташування Spool, тож нічого не записується. Виправлення вкаже на нове розташування і збереже резервну копію.";
+
+/* Panel empty state when the Claude Code settings file cannot be read: title. */
+"panel.empty.unreadable.title" = "Налаштування Claude Code не читаються";
+
+/* Panel empty state when the Claude Code settings file cannot be read: explanation. %@ is the path of the file. */
+"panel.empty.unreadable.body" = "Spool не може прочитати %@ як JSON і нічого не змінює. Виправте файл, потім підключіться в налаштуваннях.";
+
+/* Panel: button that opens Spool's settings window. */
+"panel.openSettings" = "Налаштування…";
+
+/* Panel: one line above the footer, the status line points to Spool at an old location. */
+"panel.note.needsRepair" = "Підключення треба виправити";
+
+/* Panel: one line above the footer, Claude Code's status line no longer runs Spool. */
+"panel.note.notConnected" = "Claude Code не підключено";
+
+/* Panel: one line above the footer, the Claude Code settings file (settings.json) cannot be read. */
+"panel.note.unreadable" = "Помилка в settings.json";
+
+/* Settings window title. */
+"settings.title" = "Налаштування Spool";
+
+/* Settings: section header for the Claude Code status line. */
+"settings.claudeCode.header" = "Claude Code";
+
+/* Settings: the Claude Code status line runs Spool's helper. */
+"settings.claudeCode.connected" = "Підключено";
+
+/* Settings: explanation under "Connected". */
+"settings.claudeCode.connected.detail" = "Claude Code передає ліміти у Spool після кожної відповіді.";
+
+/* Settings: Spool's helper is not the Claude Code status line. */
+"settings.claudeCode.notConnected" = "Не підключено";
+
+/* Settings: explanation under "Not connected". %@ is the path of the Claude Code settings file. */
+"settings.claudeCode.notConnected.detail" = "Підключення додає рядок стану Spool у %@ і зберігає резервну копію.";
+
+/* Settings: the status line points to a Spool helper at an old location. */
+"settings.claudeCode.needsRepair" = "Потрібне виправлення";
+
+/* Settings: explanation under "Needs repair". %@ is the old helper path. */
+"settings.claudeCode.needsRepair.detail" = "Рядок стану досі вказує на старе розташування Spool: %@";
+
+/* Settings: the Claude Code settings file cannot be read. */
+"settings.claudeCode.unreadable" = "Файл налаштувань не читається";
+
+/* Settings: explanation under "Settings file unreadable". %@ is the path of the Claude Code settings file. */
+"settings.claudeCode.unreadable.detail" = "Spool не може прочитати %@ як JSON і нічого не змінює. Виправте файл і поверніться сюди.";
+
+/* Settings: button that connects the Claude Code status line. */
+"settings.claudeCode.connect" = "Підключити";
+
+/* Settings: button that restores the previous Claude Code status line. */
+"settings.claudeCode.disconnect" = "Відключити";
+
+/* Settings: button that points the status line at this copy of Spool. */
+"settings.claudeCode.repair" = "Виправити";
+
+/* Settings: section header for display options. */
+"settings.display.header" = "Відображення";
+
+/* Settings: toggle for the pace forecast. */
+"settings.forecast" = "Прогноз темпу";
+
+/* Settings: explanation under the pace forecast toggle. */
+"settings.forecast.detail" = "Показує, коли ліміт закінчиться за поточного темпу.";
+
+/* Settings: picker for the provider the menu bar follows when both have data. */
+"settings.menuBarProvider" = "Рядок меню показує";
+
+/* Settings: section header for optional data sources. */
+"settings.sources.header" = "Джерела даних";
+
+/* Settings: toggle for Detailed limits (Claude usage read with Claude Code's login). */
+"settings.detailedLimits" = "Детальні ліміти";
+
+/* Settings: risk text under the Detailed limits toggle. */
+"settings.detailedLimits.detail" = "Додає тижневі ліміти окремих моделей, назву плану та свіжі цифри, поки Claude Code простоює. Spool читає вхід Claude Code на цьому Mac і ніколи його не змінює. Anthropic каже, що вхід за підпискою призначений для Claude Code, тож монітор використання, який лише читає, перебуває в сірій зоні. Ризик малий, але не нульовий; вибір за вами.";
+
+/* Settings: toggle for OpenAI Codex limits. */
+"settings.codex" = "OpenAI Codex";
+
+/* Settings: explanation under the OpenAI Codex toggle. */
+"settings.codex.detail" = "Читає вхід Codex на цьому Mac, щоб показати ліміти Codex.";
+
+/* Settings: second line under the OpenAI Codex toggle. */
+"settings.codex.keychainNote" = "Якщо Codex зберігає вхід у «Зв’язці ключів», macOS може запитати, чи дозволити Spool його читати.";
+
+/* Settings: a Codex login exists (file or Keychain item), but Spool could not read a usable one, for example after access was declined. */
+"settings.codex.unreadable" = "Вхід Codex знайдено, але не вдалося прочитати";
+
+/* Settings: question shown after Detailed limits is switched on, before Spool reads anything. */
+"settings.detailedLimits.confirm.title" = "Увімкнути детальні ліміти?";
+
+/* Settings: explanation under the Detailed limits question. */
+"settings.detailedLimits.confirm.detail" = "macOS може запитати, чи дозволити Spool читати вхід Claude Code зі «Зв’язки ключів».";
+
+/* Settings: button that turns Detailed limits on after the risk text. */
+"settings.detailedLimits.enable" = "Увімкнути";
+
+/* Settings: button that leaves Detailed limits off. */
+"settings.detailedLimits.cancel" = "Скасувати";
+
+/* Settings: Detailed limits waits because Claude Code's login token has expired. */
+"settings.detailedLimits.paused" = "Призупинено, доки Claude Code не оновить вхід";
+
+/* Settings: no usable Claude Code login was found, or access to it was declined. */
+"settings.detailedLimits.noLogin" = "Вхід Claude Code не знайдено";
+
+/* Settings: under the OpenAI Codex toggle, a Codex login exists on this Mac. */
+"settings.codex.found" = "Вхід Codex знайдено на цьому Mac";
+
+/* Settings: no usable Codex login was found on this Mac. */
+"settings.codex.noLogin" = "Вхід Codex не знайдено";
+
+/* Settings: the first check of a data source is running. */
+"settings.source.checking" = "Перевірка…";
+
+/* Settings: time of the last successful check. %@ is a time such as 14:23, or a weekday and time. */
+"settings.source.lastChecked" = "Перевірено %@";
+
+/* Settings: the next check waits until the given time. %@ is a time such as 14:38, or a weekday and time. */
+"settings.source.nextCheck" = "Наступна перевірка після %@";
+
+/* Settings: the server asked Spool to wait. %@ is a time such as 15:10, or a weekday and time. */
+"settings.source.rateLimited" = "Забагато запитів, пауза до %@";
+
+/* Settings: the request got an error status. %ld is the HTTP status code such as 401. */
+"settings.source.httpFailed" = "Запит не вдався (HTTP %ld)";
+
+/* Settings: the request did not reach the server. */
+"settings.source.networkFailed" = "Запит не вдався: помилка мережі";
+
+/* Settings: the server answered with something Spool cannot read. */
+"settings.source.malformed" = "Запит не вдався: неочікувана відповідь";
+
+/* Settings: section header for notifications. */
+"settings.notifications.header" = "Сповіщення";
+
+/* Settings: toggle for the threshold notifications. */
+"settings.notifications" = "Сповіщати про 5-годинне вікно";
+
+/* Settings: explanation under the notifications toggle. */
+"settings.notifications.detail" = "Раз за вікно на кожній позначці нижче.";
+
+/* Settings: stepper for the first notification threshold. %ld is a percentage such as 50. */
+"settings.notifications.first" = "Перше: використано %ld%%";
+
+/* Settings: stepper for the second notification threshold. %ld is a percentage such as 90. */
+"settings.notifications.second" = "Друге: використано %ld%%";
+
+/* Settings: notifications are turned off for Spool in System Settings. */
+"settings.notifications.denied" = "Сповіщення для Spool вимкнено в Системних параметрах.";
+
+/* Settings: toggle that starts Spool at login. */
+"settings.launchAtLogin" = "Запускати під час входу";
+
+/* Settings: the login item needs the user's approval in System Settings. */
+"settings.launchAtLogin.approval" = "Дозвольте Spool у розділі «Об’єкти входу» Системних параметрів.";
+
+/* Settings: registering or removing the login item failed. %@ is the system's error text. */
+"settings.launchAtLogin.failed" = "Не вдалося змінити об’єкт входу: %@";
+
+/* Notification subtitle when Claude and Codex both have data: the window is Claude's. */
+"notification.provider.claude" = "Claude";
+
+/* Notification subtitle when Claude and Codex both have data: the window is Codex's. */
+"notification.provider.codex" = "Codex";
+
+/* Notification title when half of the 5-hour window is used. */
+"notification.title.half" = "Половину 5-годинного вікна використано";
+
+/* Notification title for any other threshold. %d is a percentage such as 90. */
+"notification.title.percent" = "Використано %d%% 5-годинного вікна";
+
+/* Notification body: reset later today. %@ is a clock time such as 16:10. */
+"notification.body.resetsAt" = "Скидання о %@.";
+
+/* Notification body: reset on another day. %@ is a weekday and time such as Thu 01:10. */
+"notification.body.resetsOn" = "Скидання %@.";
+
+/* Notification body, added after the reset when the forecast runs out today. %@ is a clock time such as 15:40. Starts with a space. */
+"notification.body.runsOutAt" = " За такого темпу закінчиться о %@.";
+
+/* Notification body, added after the reset when the forecast runs out on another day. %@ is a weekday and time. Starts with a space. */
+"notification.body.runsOutOn" = " За такого темпу закінчиться %@.";
