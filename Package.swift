@@ -11,6 +11,7 @@ let package = Package(
     targets: [
         .target(name: "SpoolCore"),
         .executableTarget(name: "spool-statusline", dependencies: ["SpoolCore"]),
+        .executableTarget(name: "Spool", dependencies: ["SpoolCore"]),
         .testTarget(
             name: "SpoolCoreTests",
             dependencies: ["SpoolCore"],
