@@ -25,8 +25,13 @@ set +a
 : "${BUNDLE_ID_PREFIX:?BUNDLE_ID_PREFIX missing in Config/build.env}"
 : "${VERSION:?VERSION missing in Config/build.env}"
 
-swift build -c "$CONFIG"
-BIN="$(swift build -c "$CONFIG" --show-bin-path)"
+# Release builds are universal (Apple silicon and Intel); debug builds stay native and quick.
+BUILD_FLAGS=(-c "$CONFIG")
+if [ "$CONFIG" = release ]; then
+    BUILD_FLAGS+=(--arch arm64 --arch x86_64)
+fi
+swift build "${BUILD_FLAGS[@]}"
+BIN="$(swift build "${BUILD_FLAGS[@]}" --show-bin-path)"
 
 APP="$ROOT/build/Spool.app"
 rm -rf "$APP"
